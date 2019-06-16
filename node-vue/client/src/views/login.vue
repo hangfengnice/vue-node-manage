@@ -65,21 +65,40 @@ export default {
       }
     };
   },
+  created(){
+    if(localStorage.token){
+      const data = JSON.parse(localStorage.token)
+      this.$store.dispatch('setAuthenticated',!this.isEmpty(data))
+      this.$store.dispatch('setUser',data)
+    }
+  },
   methods:{
-     submitForm(formName) {
+    //  submitForm(formName) {
 
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.$axios.post('/api/users/login',this.loginUser)
-            .then(res => {
-             console.log(res)
-             window.localStorage.setItem('token',true)
-            })
+    //     this.$refs[formName].validate((valid) => {
+    //       if (valid) {
+    //         this.$axios.post('/api/users/login',this.loginUser)
+    //         .then(res => {
+    //         //  console.log(res.data.data)
+    //         const data = res.data.data
+    //          window.localStorage.setItem('token',JSON.stringify(data))
+    //          this.$store.dispatch('setAuthenticated',!this.isEmpty(data))
+    //          this.$store.dispatch('setUser',data)
+    //          this.$router.push('/index')
+    //         })
 
-            this.$router.push('/index')
-          } 
-        });
-      },
+            
+    //       } 
+    //     });
+    //   },
+      isEmpty(value){
+        return (
+          value === undefined ||
+          value === null || 
+          (typeof value === "object" && Object.keys(value).length === 0 ) || 
+          (typeof value === 'string' && value.trim().length === 0) 
+        )
+      }
       
   }
 };

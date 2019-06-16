@@ -44,7 +44,8 @@ router.post('/login',(req, res) => {
     }
     if(password == user.password){
       res.json({
-        success: true
+        success: true,
+        data: user
       })
     } 
   })
