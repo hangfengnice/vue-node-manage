@@ -67,12 +67,13 @@ export default {
   },
   methods:{
      submitForm(formName) {
-       console.log
+
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$axios.post('/api/users/login',this.loginUser)
             .then(res => {
              console.log(res)
+             window.localStorage.setItem('token',true)
             })
 
             this.$router.push('/index')
@@ -111,7 +112,7 @@ export default {
   color: #fff;
   display: block;
 }
-.registerForm {
+.loginForm {
   margin-top: 20px;
   background-color: #fff;
   padding: 20px 40px 20px 20px;
@@ -122,4 +123,14 @@ export default {
 .submit_btn {
   width: 100%;
 }
+.tiparea{
+  text-align: cneter;
+  font-size: 12px;
+  color: #333;
+
+}
+.tiparea p a{
+  color: #409eff;
+}
+
 </style>
