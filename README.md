@@ -1,5 +1,15 @@
 # vue-node-manage
 
+## 项目启动
+
+```javascript
+git clone git@github.com:hangfengnice/vue-node-manage.git
+
+npm i  // 安装服务端依赖包
+
+npm run dev // 启动项目的同时 安装客户端的依赖包 需要一点时间
+```
+
 ## 服务端部分 node-express-mongodb-mongoose
 
 ## 前后端连载
