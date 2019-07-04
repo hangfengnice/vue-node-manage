@@ -8,19 +8,18 @@ var jwt = require('jsonwebtoken');
 const passport = require('passport')
 
 
-router.get('/test',(req, res) => {
-  res.json({
-    msg: "login is works"
-  })
-})
+// router.get('/test',(req, res) => {
+//   res.json({
+//     msg: "login is works"
+//   })
+// })
 router.post('/register',(req,res) => {
-  // console.log(req.body)
   User.findOne({email: req.body.email})
   .then(user => {
     if(user){
       return res.status(400).json('邮箱已被注册')
     }else{
-      var avatar = gravatar.url(req.body.email, {s: '200', r: 'pg', d: 'mm'});
+      const avatar = gravatar.url(req.body.email, {s: '200', r: 'pg', d: 'mm'});
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -28,10 +27,12 @@ router.post('/register',(req,res) => {
         password: req.body.password,
         identity: req.body.identity
       })
+      console.log(req.body.password)
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newUser.password, salt, function(err, hash) {
             // Store hash in your password DB.
             if(err) throw err;
+            console.log(hash)
             newUser.password = hash
             newUser.save()
             .then( user => res.json(user))

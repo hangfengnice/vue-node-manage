@@ -35,6 +35,7 @@ router.get('/',passport.authenticate('jwt',{session:false}),(req, res) => {
   .catch(err => res.status(404).json(err))
 })
 
+// 获取单个信息
 router.get('/:id',passport.authenticate('jwt',{session:false}),(req, res) => {
   Profile.findOne({_id: req.params.id})
   .then(profile => {
@@ -55,14 +56,15 @@ router.post('/edit/:id',passport.authenticate('jwt',{session:false}),(req,res) =
   if(req.body.expend) profileFields.expend = req.body.expend
   if(req.body.cash) profileFields.cash = req.body.cash
   if(req.body.remark) profileFields.remark = req.body.remark
-  Profile.findByIdAndUpdate({_id: req.params.id},{$set:profileFields},{new:true})
+  Profile.findByIdAndUpdate({_id: req.params.id},{$set:profileFields},{useFindAndModify: false},{new: true})
   .then(profile => {
     res.json(profile)
   })
 })
 router.delete('/delete/:id',passport.authenticate('jwt',{session:false}),(req, res) => {
   Profile.findOneAndRemove({_id: req.params.id}).then(profile => {
-    rofile.save().then(profile => res.json(profile))
+    // profile.save().then(profile => res.json(profile))
+    res.json(profile)
   })
   .catch(err => res.status(404).json('删除失败'))
 })
