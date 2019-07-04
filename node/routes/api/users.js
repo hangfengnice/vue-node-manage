@@ -8,11 +8,11 @@ var jwt = require('jsonwebtoken');
 const passport = require('passport')
 
 
-// router.get('/test',(req, res) => {
-//   res.json({
-//     msg: "login is works"
-//   })
-// })
+router.get('/test',(req, res) => {
+  res.json({
+    msg: "login is works"
+  })
+})
 router.post('/register',(req,res) => {
   // console.log(req.body)
   User.findOne({email: req.body.email})

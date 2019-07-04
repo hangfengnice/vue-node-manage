@@ -9,7 +9,7 @@ const profiles = require('./routes/api/profiles')
 
 const passport = require('passport')
 
-mongoose.connect("mongodb://localhost:27017/test", { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:27017/vue-node", { useNewUrlParser: true })
 .then(() => {
   console.log('ok')
 })
