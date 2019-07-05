@@ -5,6 +5,7 @@ import Register from "./views/register.vue";
 import Login from "./views/login.vue";
 import Home from "./views/Home.vue";
 import InfoShow from "./views/InfoShow.vue";
+import FundList from "./views/fundList.vue";
 
 Vue.use(Router);
 
@@ -23,7 +24,8 @@ const router = new Router({
       children: [
         { path: "", name: "/", component: Home },
         { path: "/home", name: "home", component: Home },
-        { path: "/infoshow", name: "infoshow", component: InfoShow }
+        { path: "/infoshow", name: "infoshow", component: InfoShow },
+        { path: "/fundlist", name: "fundlist", component: FundList }
       ]
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route

@@ -7,6 +7,8 @@ git clone git@github.com:hangfengnice/vue-node-manage.git
 
 npm i  // 安装服务端依赖包
 
+// 此时需要开启本地mongodb
+
 npm run dev // 启动项目的同时 安装客户端的依赖包 需要一点时间
 ```
 

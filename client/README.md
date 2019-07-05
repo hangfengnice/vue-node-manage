@@ -1,29 +1,9 @@
 # client
 
-## Project setup
-```
-npm install
-```
+## 项目启动
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+```javascript
+npm i
 
-### Compiles and minifies for production
+npm start
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
