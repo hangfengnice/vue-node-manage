@@ -146,7 +146,7 @@ export default {
     height: 210px;
     position: absolute;
     top: 10%;
-    left: 30%;
+    left: 25%;
     padding: 25px;
     border-radius: 5px;
     text-align: center;
